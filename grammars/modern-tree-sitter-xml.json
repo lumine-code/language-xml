@@ -4,6 +4,11 @@
   "type": "modern-tree-sitter",
   "parser": "tree-sitter-xml",
   "injectionRegex": "^xml$",
+  // The TextMate grammar matches the XML declaration, and a first-line match is
+  // worth 0.5 against the 0.1 that prefers Tree-sitter — so without this every
+  // file that opens with `<?xml …?>`, which is very nearly all of them, went to
+  // the TextMate grammar instead.
+  "firstLineRegex": ["^<\\?xml\\s+version\\s*=", "vim\\b.*\\bset\\b.*\\b(filetype|ft|syntax)=xml"],
   "fileTypes": [
     "aiml",
     "atom",
