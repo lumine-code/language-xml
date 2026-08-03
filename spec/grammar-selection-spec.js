@@ -18,14 +18,14 @@ describe("XML grammar selection", () => {
     const grammar = selectedFor("sample.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<a/>\n');
 
     expect(grammar.scopeName).toBe("text.xml");
-    expect(grammar.constructor.name).toBe("WASMTreeSitterGrammar");
+    expect(grammar.constructor.name).toBe("TreeSitterGrammar");
   });
 
   it("prefers the Tree-sitter grammar for a file without one", () => {
     const grammar = selectedFor("sample.xml", "<a/>\n");
 
     expect(grammar.scopeName).toBe("text.xml");
-    expect(grammar.constructor.name).toBe("WASMTreeSitterGrammar");
+    expect(grammar.constructor.name).toBe("TreeSitterGrammar");
   });
 
   it("still honours the TextMate preference", () => {

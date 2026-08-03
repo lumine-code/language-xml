@@ -1,7 +1,7 @@
 {
   "name": "XML",
   "scopeName": "text.xml",
-  "type": "modern-tree-sitter",
+  "type": "tree-sitter",
   "parser": "tree-sitter-xml",
   "injectionRegex": "^xml$",
   // The TextMate grammar matches the XML declaration, and a first-line match is
