@@ -8,6 +8,10 @@ XML language support.
 - **Syntax highlighting**: full grammar coverage for XML and XSL files.
 - **Snippets**: shortcuts for common XML constructs.
 
+## Installation
+
+To install `language-xml` search for _language-xml_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-xml`.
+
 ## Contributing
 
 Got ideas to make this package better, found a bug, or want to help add new features? Just drop your thoughts on GitHub. Any feedback is welcome!
