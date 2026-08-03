@@ -157,16 +157,25 @@
   (AttValue) @string.quoted.double.xml)
 
 ; Delimiters & punctuation
+;
+; One pattern per side, rather than one capture for the lot: a scope is named
+; for what it delimits and which end it is. `@tag.delimiter` was the Neovim
+; capture name, which is not a TextMate scope at all — it themed as nothing,
+; and anything selecting on `punctuation.definition.tag` (bracket-matcher's
+; tag matching, for one) could not see an XML tag.
 [
   "<?"
-  "?>"
   "<"
-  ">"
   "</"
-  "/>"
   "<!"
+] @punctuation.definition.tag.begin.xml
+
+[
+  "?>"
+  ">"
+  "/>"
   "]]>"
-] @tag.delimiter
+] @punctuation.definition.tag.end.xml
 
 "(" @punctuation.definition.group.begin.bracket.round.xml
 ")" @punctuation.definition.group.end.bracket.round.xml
