@@ -6,12 +6,12 @@
 
 describe("XML grammar selection", () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage("language-xml");
-    atom.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-xml");
+    lumine.config.set("language.useTreeSitterParsers", true);
   });
 
   function selectedFor(fileName, contents) {
-    return atom.grammars.selectGrammar(fileName, contents);
+    return lumine.grammars.selectGrammar(fileName, contents);
   }
 
   it("prefers the Tree-sitter grammar for a file with an XML declaration", () => {
@@ -29,7 +29,7 @@ describe("XML grammar selection", () => {
   });
 
   it("still honours the TextMate preference", () => {
-    atom.config.set("language.useTreeSitterParsers", false);
+    lumine.config.set("language.useTreeSitterParsers", false);
 
     const grammar = selectedFor("sample.xml", '<?xml version="1.0"?>\n<a/>\n');
 

@@ -7,12 +7,12 @@ const path = require("path");
 
 describe("XML sample fixtures", () => {
   beforeEach(async () => {
-    await atom.packages.activatePackage("language-xml");
-    atom.config.set("language.useTreeSitterParsers", true);
+    await lumine.packages.activatePackage("language-xml");
+    lumine.config.set("language.useTreeSitterParsers", true);
   });
 
   it("parses sample.xml without error", async () => {
-    const editor = await atom.workspace.open(path.join(__dirname, "fixtures", "sample.xml"));
+    const editor = await lumine.workspace.open(path.join(__dirname, "fixtures", "sample.xml"));
     const languageMode = editor.getBuffer().getLanguageMode();
     await languageMode.ready;
 
