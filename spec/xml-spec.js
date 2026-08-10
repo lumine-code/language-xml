@@ -1,14 +1,14 @@
 describe("XML grammar", function () {
   let grammar = null;
 
-  beforeEach(function () {
+  beforeEach(async () => {
     // This suite tests the TextMate grammar. Once the package also ships a
     // Tree-sitter one, grammarForScopeName returns that instead under the
     // default setting, and every tokenizeLine assertion below would break.
     lumine.config.set("language.useTreeSitterParsers", false);
-    waitsForPromise(() => lumine.packages.activatePackage("language-xml"));
+    await lumine.packages.activatePackage("language-xml");
 
-    runs(() => (grammar = lumine.grammars.grammarForScopeName("text.xml")));
+    grammar = lumine.grammars.grammarForScopeName("text.xml");
   });
 
   it("parses the grammar", function () {
