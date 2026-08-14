@@ -10,7 +10,7 @@ XML language support.
 
 ## Installation
 
-To install `language-xml` search for _language-xml_ in the Install pane of the Lumine settings or run `lumine --install lumine-code/language-xml`.
+To install `language-xml` search for it in the Install pane of the Lumine settings, or run the command `lumine --install lumine-code/language-xml`.
 
 ## Contributing
 
