@@ -4,7 +4,7 @@ XML language support.
 
 ## Features
 
-- **Grammars**: provides TextMate grammars derived from [atom/language-xml](https://github.com/atom/language-xml).
+- **Grammars**: provides Tree-sitter grammars built from [tree-sitter-xml](https://github.com/tree-sitter-grammars/tree-sitter-xml) and TextMate grammars derived from [atom/language-xml](https://github.com/atom/language-xml).
 - **Syntax highlighting**: full grammar coverage for XML and XSL files.
 - **Snippets**: shortcuts for common XML constructs.
 
