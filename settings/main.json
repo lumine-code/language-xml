@@ -1,6 +1,6 @@
 {
   ".text.xml": {
-    "language": {
+    "editor": {
       "commentStart": "<!-- ",
       "commentEnd": " -->",
       "commentDelimiters": {

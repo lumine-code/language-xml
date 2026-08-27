@@ -8,7 +8,7 @@ const path = require("path");
 describe("XML sample fixtures", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-xml");
-    lumine.config.set("language.useTreeSitterParsers", true);
+    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   it("parses sample.xml without error", async () => {

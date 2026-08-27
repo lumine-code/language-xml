@@ -7,7 +7,7 @@
 describe("XML grammar selection", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-xml");
-    lumine.config.set("language.useTreeSitterParsers", true);
+    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   function selectedFor(fileName, contents) {
@@ -29,7 +29,7 @@ describe("XML grammar selection", () => {
   });
 
   it("still honours the TextMate preference", () => {
-    lumine.config.set("language.useTreeSitterParsers", false);
+    lumine.config.set("editor.useTreeSitterParsers", false);
 
     const grammar = selectedFor("sample.xml", '<?xml version="1.0"?>\n<a/>\n');
 
