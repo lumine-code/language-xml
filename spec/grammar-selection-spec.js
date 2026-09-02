@@ -1,13 +1,8 @@
-// A first-line match is worth 0.5 to a grammar's score, and preferring
-// Tree-sitter is worth only 0.1. So whenever a TextMate grammar declares
-// `firstLineMatch` and its Tree-sitter twin declares no `firstLineRegex`, every
-// file whose first line matches quietly gets the TextMate grammar — here, any
-// file that opens with an XML declaration, which is very nearly all of them.
+// XML declarations and ordinary extensions resolve to the Tree-sitter parser.
 
 describe("XML grammar selection", () => {
   beforeEach(async () => {
     await lumine.packages.activatePackage("language-xml");
-    lumine.config.set("editor.useTreeSitterParsers", true);
   });
 
   function selectedFor(fileName, contents) {
@@ -28,12 +23,14 @@ describe("XML grammar selection", () => {
     expect(grammar.constructor.name).toBe("TreeSitterGrammar");
   });
 
-  it("still honours the TextMate preference", () => {
-    lumine.config.set("editor.useTreeSitterParsers", false);
+  it("uses a root-only XSL descriptor", () => {
+    const grammar = selectedFor(
+      "transform.xsl",
+      '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"/>',
+    );
 
-    const grammar = selectedFor("sample.xml", '<?xml version="1.0"?>\n<a/>\n');
-
-    expect(grammar.scopeName).toBe("text.xml");
-    expect(grammar.constructor.name).toBe("Grammar");
+    expect(grammar.scopeName).toBe("text.xml.xsl");
+    expect(grammar.type).toBe("tree-sitter");
+    expect(grammar.injectionNames).toEqual([]);
   });
 });
