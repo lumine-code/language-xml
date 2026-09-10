@@ -25,13 +25,14 @@
 (PI) @keyword.control.directive.xml
 
 ; Element declaration
-(elementdecl
-  "ELEMENT" @keyword.control.directive.define.xml
-  (Name) @entity.name.tag.xml)
+(("ELEMENT" @keyword.control.directive.define.xml)
+  (#is? test.childOfType elementdecl))
 
-(contentspec
-  (_
-    (Name) @entity.other.attribute-name.xml))
+((Name) @entity.name.tag.xml
+  (#is? test.childOfType elementdecl))
+
+((Name) @entity.other.attribute-name.xml
+  (#is? test.typeAt "parent.parent contentspec"))
 
 "#PCDATA" @support.type.builtin.xml
 
@@ -73,24 +74,26 @@
   (Name) @entity.name.label.xml)
 
 ; Attlist declaration
-(AttlistDecl
-  "ATTLIST" @keyword.control.directive.define.xml
-  (Name) @entity.name.tag.xml)
+(("ATTLIST" @keyword.control.directive.define.xml)
+  (#is? test.childOfType AttlistDecl))
 
-(AttDef
-  (Name) @entity.other.attribute-name.xml)
+((Name) @entity.name.tag.xml
+  (#is? test.childOfType AttlistDecl))
 
-(AttDef
-  (Enumeration
-    (Nmtoken) @string.quoted.double.xml))
+((Name) @entity.other.attribute-name.xml
+  (#is? test.childOfType AttDef))
+
+((Nmtoken) @string.quoted.double.xml
+  (#is? test.childOfType Enumeration)
+  (#is? test.typeAt "parent.parent AttDef"))
 
 [
   (StringType)
   (TokenizedType)
 ] @support.type.builtin.xml
 
-(NotationType
-  "NOTATION" @support.type.builtin.xml)
+(("NOTATION" @support.type.builtin.xml)
+  (#is? test.childOfType NotationType))
 
 [
   "#REQUIRED"
@@ -133,21 +136,15 @@
   (PseudoAttValue) @string.quoted.double.xml)
 
 ; Doctype declaration
-(doctypedecl
-  "DOCTYPE" @keyword.control.directive.define.xml)
+(("DOCTYPE" @keyword.control.directive.define.xml)
+  (#is? test.childOfType doctypedecl))
 
-(doctypedecl
-  (Name) @entity.name.type.xml)
+((Name) @entity.name.type.xml
+  (#is? test.childOfType doctypedecl))
 
 ; Tags
-(STag
-  (Name) @entity.name.tag.xml)
-
-(ETag
-  (Name) @entity.name.tag.xml)
-
-(EmptyElemTag
-  (Name) @entity.name.tag.xml)
+((Name) @entity.name.tag.xml
+  (#is? test.childOfType "STag ETag EmptyElemTag"))
 
 ; Attributes
 (Attribute
