@@ -3,6 +3,7 @@
   "scopeName": "text.xml.xsl",
   "type": "tree-sitter",
   "parser": "tree-sitter-xml",
+  "injectionNames": ["xsl", "xslt"],
   "firstLineRegex": ["<xsl:(?:stylesheet|transform)\\b"],
   "fileTypes": ["xsl", "xslt"],
   "comments": {

@@ -23,7 +23,7 @@ describe("XML grammar selection", () => {
     expect(grammar.constructor.name).toBe("TreeSitterGrammar");
   });
 
-  it("uses a root-only XSL descriptor", () => {
+  it("selects XSL files and exposes their conventional injection aliases", () => {
     const grammar = selectedFor(
       "transform.xsl",
       '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"/>',
@@ -31,6 +31,9 @@ describe("XML grammar selection", () => {
 
     expect(grammar.scopeName).toBe("text.xml.xsl");
     expect(grammar.type).toBe("tree-sitter");
-    expect(grammar.injectionNames).toEqual([]);
+    expect(grammar.injectionNames).toEqual(["xsl", "xslt"]);
+    for (const alias of grammar.injectionNames) {
+      expect(lumine.grammars.treeSitterGrammarForLanguageString(alias)).toBe(grammar);
+    }
   });
 });

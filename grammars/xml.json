@@ -3,7 +3,7 @@
   "scopeName": "text.xml",
   "type": "tree-sitter",
   "parser": "tree-sitter-xml",
-  "injectionNames": ["xml"],
+  "injectionNames": ["xml", "rss", "wsdl", "xsd"],
   // XML declarations and editor modelines identify extensionless XML files.
   "firstLineRegex": ["^<\\?xml\\s+version\\s*=", "vim\\b.*\\bset\\b.*\\b(filetype|ft|syntax)=xml"],
   "fileTypes": [
