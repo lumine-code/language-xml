@@ -19,15 +19,15 @@ describe("XML Tree-sitter highlights", () => {
     editor.setText(text);
     languageMode = editor.getBuffer().languageMode;
     await languageMode.ready;
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
   }
 
-  function rawCaptures(startRow, endRow) {
-    const layer = languageMode.rootLanguageLayer;
-    return layer.queries.highlightsQuery.captures(layer.tree.rootNode, {
+  async function rawCaptures(startRow, endRow) {
+    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
       startPosition: new Point(startRow, 0),
       endPosition: new Point(endRow, 0),
     });
+    return groups.find(({ grammar }) => grammar === editor.getGrammar())?.captures ?? [];
   }
 
   function expectLocalTile(captures, maximum) {
@@ -46,7 +46,7 @@ describe("XML Tree-sitter highlights", () => {
     ];
     await setUp(lines.join("\r\n"));
 
-    expectLocalTile(rawCaptures(3000, 3006), 70);
+    expectLocalTile(await rawCaptures(3000, 3006), 70);
     expect(editor.scopeDescriptorForBufferPosition([3000, 2]).getScopesArray()).toContain(
       "entity.other.attribute-name.xml",
     );
@@ -63,7 +63,7 @@ describe("XML Tree-sitter highlights", () => {
       "<root/>",
     ];
     await setUp(attlist.join("\r\n"));
-    expectLocalTile(rawCaptures(3000, 3006), 50);
+    expectLocalTile(await rawCaptures(3000, 3006), 50);
 
     const contents = [
       "<!DOCTYPE root [",
@@ -75,8 +75,8 @@ describe("XML Tree-sitter highlights", () => {
     ];
     editor.setText(contents.join("\r\n"));
     await languageMode.atTransactionEnd();
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
-    expectLocalTile(rawCaptures(3000, 3006), 45);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expectLocalTile(await rawCaptures(3000, 3006), 45);
   });
 
   it("keeps every unbounded XML context rooted on its captured leaf", () => {

@@ -16,6 +16,6 @@ describe("XML sample fixtures", () => {
     await languageMode.ready;
 
     expect(editor.getGrammar().scopeName).toBe("text.xml");
-    expect(languageMode.tree.rootNode.hasError).toBe(false);
+    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
   });
 });
