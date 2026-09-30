@@ -19,15 +19,18 @@ describe("XML Tree-sitter highlights", () => {
     editor.setText(text);
     languageMode = editor.getBuffer().languageMode;
     await languageMode.ready;
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.getSyntaxNodeAtBufferPosition([0, 0], (node) => !node.parent).hasError).toBe(
+      false,
+    );
   }
 
   async function rawCaptures(startRow, endRow) {
-    const groups = await editor.getGrammarQueryCaptureGroups("highlightsQuery", {
+    const capturesQuery = await editor.getGrammar().getQuery("highlightsQuery");
+    const queryRoot = editor.getSyntaxNodeAtBufferPosition([0, 0], (node) => !node.parent);
+    return capturesQuery.captures(queryRoot, {
       startPosition: new Point(startRow, 0),
       endPosition: new Point(endRow, 0),
     });
-    return groups.find(({ grammar }) => grammar === editor.getGrammar())?.captures ?? [];
   }
 
   function expectLocalTile(captures, maximum) {
@@ -75,7 +78,9 @@ describe("XML Tree-sitter highlights", () => {
     ];
     editor.setText(contents.join("\r\n"));
     await languageMode.atTransactionEnd();
-    expect((await editor.getSyntaxDiagnostics()).hasError).toBe(false);
+    expect(editor.getSyntaxNodeAtBufferPosition([0, 0], (node) => !node.parent).hasError).toBe(
+      false,
+    );
     expectLocalTile(await rawCaptures(3000, 3006), 45);
   });
 
