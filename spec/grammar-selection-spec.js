@@ -23,6 +23,14 @@ describe("XML grammar selection", () => {
     expect(grammar.constructor.name).toBe("TreeSitterGrammar");
   });
 
+  it("selects XML for PowerShell formatting and type definitions", () => {
+    for (const fileName of ["Custom.Format.ps1xml", "Custom.Types.ps1xml"]) {
+      const grammar = selectedFor(fileName, "<Configuration><ViewDefinitions/></Configuration>");
+      expect(grammar.scopeName).toBe("text.xml");
+      expect(grammar.type).toBe("tree-sitter");
+    }
+  });
+
   it("selects XSL files and exposes their conventional injection aliases", () => {
     const grammar = selectedFor(
       "transform.xsl",
