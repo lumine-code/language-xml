@@ -1,0 +1,49 @@
+{
+  "text.xml": {
+    "text": "<root><item id=\"primary\"/><item name=\"secondary\"/><plain/><empty id=\"\"/><child xml:id=\"scoped\"/></root>",
+    "symbols": [
+      {
+        "name": "primary",
+        "tag": "object"
+      },
+      {
+        "name": "secondary",
+        "tag": "object"
+      },
+      {
+        "name": "scoped",
+        "tag": "object"
+      }
+    ],
+    "absent": [
+      "root",
+      "item",
+      "plain",
+      "child",
+      ""
+    ],
+    "only": true
+  },
+  "text.xml.xsl": {
+    "text": "<xsl:stylesheet xmlns:xsl=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\"><xsl:template name=\"page\"><div/></xsl:template><xsl:template match=\"item\"/><xsl:variable name=\"limit\" select=\"5\"/></xsl:stylesheet>",
+    "symbols": [
+      {
+        "name": "page",
+        "tag": "function"
+      },
+      {
+        "name": "item",
+        "tag": "function"
+      },
+      {
+        "name": "limit",
+        "tag": "variable"
+      }
+    ],
+    "absent": [
+      "div",
+      "xsl:stylesheet"
+    ],
+    "only": true
+  }
+}

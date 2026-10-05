@@ -101,6 +101,7 @@
     "wasmBuildTool": "tree-sitter-cli#v0.27.0",
     "grammar": "xml.wasm",
     "highlightsQuery": "xml-highlights.scm",
-    "foldsQuery": "xml-folds.scm"
+    "foldsQuery": "xml-folds.scm",
+    "tagsQuery": "xml-tags.scm"
   }
 }
