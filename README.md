@@ -2,6 +2,8 @@
 
 XML language support.
 
+Fork of [pulsar-edit/pulsar](https://github.com/pulsar-edit/pulsar) (`packages/language-xml`).
+
 ## Features
 
 - **Grammars**: provides Tree-sitter grammars built from [tree-sitter-xml](https://github.com/tree-sitter-grammars/tree-sitter-xml).
