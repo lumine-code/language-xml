@@ -1,0 +1,16 @@
+{
+  "title": "language-xml",
+  "description": "XML syntax highlighting in the editor.",
+  "recordedOn": "2026-10-13",
+  "sourceRevision": "71aedcd8497b0ea7ec1b3ebaf27be2970796d12c",
+  "mode": "normal",
+  "fontSettings": "default",
+  "images": [
+    {
+      "file": "demo.png",
+      "label": "XML syntax highlighting at the default editor font size.",
+      "width": 1100,
+      "height": 670
+    }
+  ]
+}
