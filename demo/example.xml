@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE catalog SYSTEM "catalog.dtd">
+<!-- An XML sample, kept idiomatic so it is worth opening in the editor. -->
+<catalog xmlns="http://example.com/catalog"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         version="2.1">
+
+  <?processing-instruction target="value"?>
+
+  <book id="bk101" available="true">
+    <dc:title>Sample &amp; Fixture</dc:title>
+    <dc:creator>Ada Lovelace</dc:creator>
+    <published>1843-10-01</published>
+    <price currency="EUR">44.95</price>
+    <description><![CDATA[Raw text: <not a tag> & not an entity]]></description>
+  </book>
+
+  <book id="bk102">
+    <dc:title>Second</dc:title>
+    <price currency="PLN">129.00</price>
+  </book>
+
+  <empty/>
+  <spaced   attribute = "loose whitespace is legal"   />
+</catalog>
