@@ -1,16 +1,61 @@
 {
   "title": "language-xml",
-  "description": "XML syntax highlighting in the editor.",
-  "recordedOn": "2026-10-13",
-  "sourceRevision": "71aedcd8497b0ea7ec1b3ebaf27be2970796d12c",
+  "description": "XML syntax highlighting at the default editor font size.",
+  "recordedOn": "2026-10-14",
+  "sourceRevision": "482ac49a1af0f238deabbe256bf263062e63e1a2",
+  "themeSourceRevision": "14a69683b0e3238e2bc128fbfae3866c1e4ee9c6",
   "mode": "normal",
   "fontSettings": "default",
+  "scenario": "demo.js",
+  "recipeHash": "6d9488dbfea406223a735d8ed07829c0c1ea7bf618cb7fb3621b275fb922040b",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "electron": "44.7.0",
+    "chrome": "152.0.7977.130",
+    "devicePixelRatio": 1,
+    "locale": "en-GB",
+    "fontFamily": "Fira Code, Menlo, DejaVu Sans Mono, Consolas, monospace",
+    "fontSize": 14,
+    "themes": ["one-day-syntax", "one-day-ui"]
+  },
+  "viewport": { "width": 1100, "height": 670 },
+  "cornerRadius": 10,
+  "sources": {
+    "editor": {
+      "revision": "0362a9fac7d6e153a768c0381800d6f3eb06647a",
+      "dirty": true,
+      "workingTreeHash": "c4defaf459f08a90cb1517ff7c04fdeeae7e7de98030f65415ee09a97572e9a7"
+    },
+    "package": {
+      "revision": "482ac49a1af0f238deabbe256bf263062e63e1a2",
+      "dirty": true,
+      "workingTreeHash": "b03dfeb75e904344b211340ac31c15b06de5e94e516caaacef363ed0a3903232"
+    },
+    "language-xml": {
+      "revision": "482ac49a1af0f238deabbe256bf263062e63e1a2",
+      "dirty": true,
+      "workingTreeHash": "b03dfeb75e904344b211340ac31c15b06de5e94e516caaacef363ed0a3903232"
+    },
+    "one-theme": {
+      "revision": "14a69683b0e3238e2bc128fbfae3866c1e4ee9c6",
+      "dirty": true,
+      "workingTreeHash": "50ec2f83a6347dd8113870992ec4eb2be4014f3d9e12213c2f51b543f1eca793"
+    }
+  },
+  "fixtures": [
+    {
+      "file": "example.xml",
+      "sha256": "e633c1411871c41e698ee4a0738d300cf3ed7509a7eba9e1530297c4cb8322db"
+    }
+  ],
   "images": [
     {
       "file": "demo.png",
       "label": "XML syntax highlighting at the default editor font size.",
       "width": 1100,
-      "height": 670
+      "height": 670,
+      "sha256": "744db22f1c5a87fee003ad71144553b6136b8544aa09c44a3e123b3d253dfcb9"
     }
   ]
 }
