@@ -4,18 +4,18 @@
   (#set! injection.include-children))
 
 ((Attribute
-  (Name) @_uri_attribute
+  (Name) @_IGNORE_.uri-attribute
   (AttValue) @injection.content) @injection.owner
-  (#match? @_uri_attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
+  (#match? @_IGNORE_.uri-attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
   (#not-match? @injection.content "^[\"'](https?://|mailto:)")
   (#set! injection.language "hyperlink")
   (#set! injection.language-scope "none")
   (#set! injection.include-children))
 
 ((Attribute
-  (Name) @_literal_attribute
+  (Name) @_IGNORE_.literal-attribute
   (AttValue) @injection.content) @injection.owner
-  (#not-match? @_literal_attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
+  (#not-match? @_IGNORE_.literal-attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
   (#not-match? @injection.content "^[\"'](https?://|mailto:)\\S*[\"']$")
   (#set! injection.language "hyperlink")
   (#set! injection.language-scope "none")

@@ -154,17 +154,17 @@
   (AttValue) @string.quoted.double.xml)
 
 ((Attribute
-  (Name) @_uri_attribute
+  (Name) @_IGNORE_.uri-attribute
   (AttValue) @markup.underline.link.xml)
-  (#match? @_uri_attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
+  (#match? @_IGNORE_.uri-attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
   (#match? @markup.underline.link.xml "^[\"'](https?://|mailto:)")
   (#set! adjust.offsetStart 1)
   (#set! adjust.offsetEnd -1))
 
 ((Attribute
-  (Name) @_literal_attribute
+  (Name) @_IGNORE_.literal-attribute
   (AttValue) @markup.underline.link.xml)
-  (#not-match? @_literal_attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
+  (#not-match? @_IGNORE_.literal-attribute "^(href|src|url|uri|xmlns(:[^:]+)?|xlink:href)$")
   (#match? @markup.underline.link.xml "^[\"'](https?://|mailto:)\\S*[\"']$")
   (#set! adjust.offsetStart 1)
   (#set! adjust.offsetEnd -1))
