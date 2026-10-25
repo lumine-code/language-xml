@@ -122,4 +122,39 @@ describe("XML hyperlink injections", () => {
       LINK_SCOPE,
     );
   });
+
+  for (const name of ["title", "data-note", "HREF"]) {
+    it(`keeps HTTP-prefixed prose in ${name} separate from its URL`, async () => {
+      const url = "https://example.com/manual.pdf";
+      editor = await lumine.workspace.open();
+      editor.setText(`<manual ${name}="${url} is the manual"/>`);
+      lumine.grammars.assignLanguageMode(editor.getBuffer(), "text.xml");
+      await editor.whenGrammarSettled();
+      await editor.languageMode.refresh?.();
+      const start = editor.getText().indexOf(url);
+      const range = new Range([0, start], [0, start + url.length]);
+      expect(editor.bufferRangeForScopeAtPosition(`.${LINK_SCOPE}`, range.start)).toEqual(range);
+      expect(editor.scopeDescriptorForBufferPosition(range.start).getScopesArray()).not.toContain(
+        XML_LINK_SCOPE,
+      );
+      expect(editor.scopeDescriptorForBufferPosition(range.end).getScopesArray()).not.toContain(
+        LINK_SCOPE,
+      );
+    });
+  }
+
+  it("retains native boundaries for a complete URI in an arbitrary attribute", async () => {
+    const url = "https://example.com/?last=&amp;";
+    editor = await lumine.workspace.open();
+    editor.setText(`<manual title="${url}"/>`);
+    lumine.grammars.assignLanguageMode(editor.getBuffer(), "text.xml");
+    await editor.whenGrammarSettled();
+    await editor.languageMode.refresh?.();
+    const start = editor.getText().indexOf(url);
+    const range = new Range([0, start], [0, start + url.length]);
+    expect(editor.bufferRangeForScopeAtPosition(`.${XML_LINK_SCOPE}`, range.start)).toEqual(range);
+    expect(editor.scopeDescriptorForBufferPosition(range.start).getScopesArray()).not.toContain(
+      LINK_SCOPE,
+    );
+  });
 });
