@@ -43,6 +43,7 @@
     "prettier": "^3.9.10"
   },
   "specPackages": [
+    "language-hyperlink",
     "symbol-tree-sitter"
   ]
 }

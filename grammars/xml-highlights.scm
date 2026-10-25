@@ -153,6 +153,11 @@
 (Attribute
   (AttValue) @string.quoted.double.xml)
 
+((AttValue) @markup.underline.link.xml
+  (#match? @markup.underline.link.xml "^[\"'](https?://|mailto:)")
+  (#set! adjust.offsetStart 1)
+  (#set! adjust.offsetEnd -1))
+
 ; Delimiters & punctuation
 ;
 ; One pattern per side, rather than one capture for the lot: a scope is named

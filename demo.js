@@ -1,7 +1,7 @@
 // Authentic package usage. Run with lumine/script/demo.js; fixtures stay in demo/.
 module.exports = {
   version: 1,
-  dependencies: [],
+  dependencies: ["language-hyperlink"],
   viewport: { width: 1100, height: 670 },
   async before() {},
   async prepare(context) {
@@ -22,15 +22,14 @@ module.exports = {
       file: "demo.png",
       caption: "XML syntax highlighting at the default editor font size.",
       timeout: 60000,
-      async run() {
-        {
-          await new Promise((resolve) => setTimeout(resolve, 350));
-        }
-      },
+      async run() {},
       ready(context) {
         const { state } = context;
         return Boolean(
-          state.editor.getBuffer().getLanguageMode() &&
+          state.editor
+            .scopeDescriptorForBufferPosition([3, 17])
+            .getScopesArray()
+            .includes("markup.underline.link.xml") &&
           state.editor.getElement().getBoundingClientRect().height > 0,
         );
       },
