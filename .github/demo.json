@@ -2,7 +2,7 @@
   "title": "language-xml",
   "description": "XML syntax highlighting at the default editor font size.",
   "recordedOn": "2026-10-25",
-  "sourceRevision": "9834040c2c2c5c5b024177f3e9243dd35f5e458b",
+  "sourceRevision": "aea4019af3073ed77ed97d950d045ae434df2ed6",
   "themeSourceRevision": "6e6733b57991d5cd93732b387c7642f9c89c786c",
   "mode": "normal",
   "fontSettings": "default",
@@ -29,12 +29,12 @@
       "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     "package": {
-      "revision": "9834040c2c2c5c5b024177f3e9243dd35f5e458b",
+      "revision": "aea4019af3073ed77ed97d950d045ae434df2ed6",
       "dirty": false,
       "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     "language-xml": {
-      "revision": "9834040c2c2c5c5b024177f3e9243dd35f5e458b",
+      "revision": "aea4019af3073ed77ed97d950d045ae434df2ed6",
       "dirty": false,
       "workingTreeHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
@@ -61,7 +61,7 @@
       "label": "XML syntax highlighting at the default editor font size.",
       "width": 1100,
       "height": 670,
-      "sha256": "6e3207c805dcb106c672fa1e5ec5097178f4b1ca6b75a52660c4d8427d78e12a"
+      "sha256": "7d7d54bf5665780e718082be454ca6cd87de9880e020918f67794ea1a9a0e534"
     }
   ]
 }
