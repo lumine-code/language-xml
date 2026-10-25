@@ -216,4 +216,4 @@
   )
 
 ; Misc
-(Comment) @comment.line.xml @_IGNORE_.spell
+(Comment) @comment.block.xml @_IGNORE_.spell
