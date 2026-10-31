@@ -7,7 +7,9 @@
   "firstLineRegex": ["<xsl:(?:stylesheet|transform)\\b"],
   "fileTypes": ["xsl", "xslt"],
   "comments": {
-    "start": "<!-- "
+    "start": "<!-- ",
+    "end": " -->",
+    "block": ["<!--", "-->"]
   },
   "treeSitter": {
     "parserSource": "github:tree-sitter-grammars/tree-sitter-xml/xml#5000ae8f22d11fbe93939b05c1e37cf21117162d",
