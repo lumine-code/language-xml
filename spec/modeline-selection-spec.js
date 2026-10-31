@@ -23,6 +23,20 @@ describe("XML modeline selection", () => {
     expect(grammar.firstLineRegex.test("preceding line\n// vim: set ft=xml:")).toBe(true);
   });
 
+  it("does not mistake a longer modeline language name for XML", () => {
+    for (const key of ["filetype", "ft", "syntax"]) {
+      for (const suffix of ["ish", "_extra", "-extra", "2", "/extra"]) {
+        const source = "// vim: set " + key + "=xml" + suffix + ":";
+        expect(lumine.grammars.grammarMatchesPrefix(grammar, source))
+          .withContext(source)
+          .toBe(false);
+        expect(lumine.grammars.selectGrammar("modeline", source).scopeName)
+          .withContext(source)
+          .not.toBe("text.xml");
+      }
+    }
+  });
+
   it("keeps failed modelines from revisiting Vim and set tokens", () => {
     expect(grammar.firstLineRegex.source).toContain("(?:(?!vim\\b).)*vim\\b");
     expect(grammar.firstLineRegex.source).toContain("(?:(?!\\bset\\b).)*\\bset\\b");
