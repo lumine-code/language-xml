@@ -9,7 +9,7 @@
   // \x0a keeps existing shebang prefix line counts unchanged.
   "firstLineRegex": [
     "^<\\?xml\\s+version\\s*=",
-    "(?:^|\\x0a)(?:(?!vim\\b).)*vim\\b(?:(?!\\bset\\b).)*\\bset\\b.*\\b(filetype|ft|syntax)=xml(?=[ \\t:]|$)"
+    "(?:^|\\x0a)(?:(?!vim\\b).)*vim\\b(?:(?!\\bset\\b).)*\\bset\\b.*\\b(filetype|ft|syntax)=xml(?=[ \\t:\\x0d\\x0a]|$)"
   ],
   "fileTypes": [
     "aiml",
