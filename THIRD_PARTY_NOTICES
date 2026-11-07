@@ -69,6 +69,9 @@ suitability for any purpose.
 Source: https://github.com/tree-sitter-grammars/tree-sitter-xml
 Revision: 5000ae8f22d11fbe93939b05c1e37cf21117162d
 
+Parser source: github:tree-sitter-grammars/tree-sitter-xml/xml#5000ae8f22d11fbe93939b05c1e37cf21117162d
+Resolved commit: 5000ae8f22d11fbe93939b05c1e37cf21117162d
+
 Original file: LICENSE
 
 Copyright (c) 2023 ObserverOfTime
